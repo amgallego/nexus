@@ -1,8 +1,9 @@
 function Card() {
     return (
         <a>
-            <p>Arte Culinario</p>
-            <span>3 semestres</span>
+            <p>Titulo del curso</p>
+            <span>Duración del curso</span>
         </a>
     );
 }
+export default Card;
