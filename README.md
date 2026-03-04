@@ -1,16 +1,89 @@
-# React + Vite
+# NEXUS - SISTEMA DE ADMISIONES
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NEXUS es una aplicación web desarrollada en React + Vite que presenta una estructura modular basada en componentes reutilizables y layouts organizados.
 
-Currently, two official plugins are available:
+El proyecto simula una plataforma académica donde se muestran programas o servicios mediante tarjetas dinámicas, integrando una estructura clara de navegación y distribución visual.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Estrucutra del proyecto
 
-## React Compiler
+NEXUS/
+│
+├── public/
+│
+├── src/
+│   ├── assets/
+│   │
+│   ├── components/
+│   │   ├── Card.jsx
+│   │   ├── Footer.jsx
+│   │   └── Sidebar.jsx
+│   │
+│   ├── layouts/
+│   │   └── Services.jsx
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── eslint.config.js
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Componentes Principales
+-Sidebar.jsx
 
-## Expanding the ESLint configuration
+## Componente encargado de la navegación lateral del sistema.
+-Card.jsx
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Componente reutilizable que representa cada programa o servicio ofrecido.
+
+Permite:
+Escalabilidad
+Reutilización
+Diseño modular
+
+-Footer.jsx
+
+## Componente que representa el pie de página institucional.
+-Services.jsx
+
+Layout principal que estructura:
+Sidebar
+Sección principal
+Listado de tarjetas
+Footer
+
+## Tecnologías Utilizadas
+
+React
+Vite
+CSS3
+Node.js
+ESLint
+
+## Instalación
+
+## 1- Clonar el repositorio
+git clone https://github.com/tuusuario/nexus.git
+
+## 2- Instalar dependencias
+npm install
+
+## 3- Ejecutar en entorno de desarrollo
+npm run dev
+
+## Buenas Prácticas Aplicadas
+
+Separación de responsabilidades
+Componentes reutilizables
+Organización limpia del proyecto
+Estructura escalable
+Uso de layout como contenedor estructural
+
+## Participantes
+- Ana María Zapata Pinillos
+- David Quiroz Gonzalez
+- Miguel Angel Muñoz Lopez
+- Ana Marcela Gallego Gomez
