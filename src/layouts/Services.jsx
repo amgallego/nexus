@@ -1,6 +1,7 @@
 import Sidebar from '..components/Sidebar'; 
 import Card from '../components/Card'
 import Footer from '../components/Footer'
+import './Services.css'
 
 const Services = function(){
     return(
