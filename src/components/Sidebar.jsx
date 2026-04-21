@@ -1,4 +1,4 @@
-export const Sidebar = () => {
+const Sidebar = () => {
     return (
         <aside>
             <img src="" alt="" />   
