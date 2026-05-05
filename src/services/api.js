@@ -1,13 +1,14 @@
 // src/services/api.js
 
-const API_URL = "http://localhost:3000"; // cambia luego si tienes backend
+const API_URL = "http://localhost:8080/api";
 
 export const endpoints = {
-  login: "/login",
-  services: "/services",
+  // Solo la parte final, sin la URL completa
+  login: "/usuarios",
 };
 
 export const apiFetch = async (endpoint, options = {}) => {
+  // Aquí se junta http://localhost:8080/api con /usuarios
   const response = await fetch(`${API_URL}${endpoint}`, {
     headers: {
       "Content-Type": "application/json",

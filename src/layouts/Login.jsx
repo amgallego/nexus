@@ -1,81 +1,73 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const estudiantes = [
-  { usuario: "estudiante1", clave: "1234" },
-  { usuario: "estudiante2", clave: "abcd" },
-];
-
-const administrativos = [
-  { usuario: "admin1", clave: "adminpass" },
-  { usuario: "admin2", clave: "clave456" },
-];
+import "../layouts/login.css";// Asegúrate de que el archivo se llame exactamente así
 
 export default function Login() {
   const navigate = useNavigate();
-  const [rol, setRol] = useState("estudiante");
-  const [usuario, setUsuario] = useState("");
-  const [clave, setClave] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const lista = rol === "estudiante" ? estudiantes : administrativos;
-    const valido = lista.some((u) => u.usuario === usuario && u.clave === clave);
+    try {
 
-    if (valido) {
-      alert(`✅ Bienvenido, ${rol === "estudiante" ? "Estudiante" : "Personal Administrativo"}!`);
-      navigate(rol === "estudiante" ? "/preseleccion" : "/admin");
-    } else {
-      alert("❌ Usuario o contraseña incorrectos.");
+      await apiFetch(endpoints.login, {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+
+      localStorage.setItem("token", "fake-token");
+
+      successAlert("Login exitoso");
+
+      navigate("/services");
+
+    } catch (error) {
+      errorAlert("No se pudo conectar con el servidor");
     }
   };
 
   return (
-    <div className="fondo">
-      <div className={`contenedor-login ${rol}`}>
-        <div className="encabezado">
-          <span className="logo-text">🛡 NEXUS</span>
-          <h2>Portal de Admisiones</h2>
-          <p>Bienvenido al sistema de acceso universitario</p>
+    <div className="fondo"> {/* Mapea con .fondo del CSS */}
+      <div className="contenedor-login"> {/* Mapea con .contenedor-login */}
+
+        <div className="encabezado"> {/* Mapea con .encabezado */}
+          <div className="logo">NEXUS</div>
+          <h2>Bienvenido</h2>
+          <p>Ingresa tus credenciales para continuar</p>
         </div>
 
-        <div className="selector">
-          <button
-            className={rol === "estudiante" ? "activo" : ""}
-            onClick={() => setRol("estudiante")}
-          >
-            Estudiante
-          </button>
-          <button
-            className={rol === "administrativo" ? "activo" : ""}
-            onClick={() => setRol("administrativo")}
-          >
-            Personal Administrativo
-          </button>
-        </div>
-
-        <div className="form-login">
-          <label>Usuario</label>
+        <form onSubmit={handleSubmit}>
+          <label>Correo Electrónico</label>
           <input
-            type="text"
-            placeholder={rol === "estudiante" ? "Ingrese su nombre de usuario" : "Ingrese su ID administrativo"}
-            value={usuario}
-            onChange={(e) => setUsuario(e.target.value)}
+            type="email"
+            placeholder="ejemplo@correo.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
+
           <label>Contraseña</label>
           <input
             type="password"
-            placeholder={rol === "estudiante" ? "Ingrese su contraseña" : "Ingrese su clave institucional"}
-            value={clave}
-            onChange={(e) => setClave(e.target.value)}
+            placeholder="••••••••"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
-          <div className="botones">
-            <button onClick={handleLogin}>Ingresar</button>
-            <button onClick={() => navigate("/register")}>Crear cuenta</button>
-          </div>
-        </div>
 
-        <p className="footer-login">© 2025 Nexus Todos los derechos reservados</p>
+          <div className="botones"> {/* Mapea con .botones */}
+            <button type="submit">Ingresar</button>
+          </div>
+        </form>
+
+        <footer>
+          <p>
+            ¿No tienes cuenta?
+            <Link to="/register" style={{ color: '#0b1f3a', fontWeight: 'bold' }}> Regístrate aquí</Link>
+          </p>
+        </footer>
       </div>
     </div>
   );

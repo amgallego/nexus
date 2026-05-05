@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+.fondo {
+  background: radial-gradient(#0f2a43, #000);
+  /* Nota: Verifica que la imagen exista en esta ruta exacta */
+  background-image: url("../assets/Imagenes/Fondo Página.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.contenedor-login {
+  background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  padding-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.encabezado {
+  background-color: #0b1f3a;
+  color: white;
+  text-align: center;
+  padding: 30px 20px 20px;
+}
+
+.encabezado .logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.encabezado h2 {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+form {
+  padding: 20px;
+}
+
+form label {
+  display: block;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+form input:focus {
+  border-color: #0b1f3a;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.botones button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #0b1f3a;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.botones button:hover {
+  background-color: #162e4e;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+  margin-top: 10px;
+}
