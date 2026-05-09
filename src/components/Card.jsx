@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function ProgramasCard({ nombre, semestres, clase, img }) {
+export default function Card({ nombre, semestres, clase, img }) {
     return (
-        <a href={`/${nombre}.html`} className={clase}>
+        <Link to={`/programa/${nombre.toLowerCase().replace(/\s+/g, '-')}`} className={clase}>
             <div className="program">
                 <img
                     src={`/src/assets/Imagenes/${img}`}
@@ -11,6 +12,6 @@ export default function ProgramasCard({ nombre, semestres, clase, img }) {
                 <p>{nombre}</p>
                 <span>{semestres}</span>
             </div>
-        </a>
+        </Link>
     );
 }

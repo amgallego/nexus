@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgramasCard from '../components/ProgramasCard';
+import ProgramasCard from '../components/Card';
 
 const programas = [
     { nombre: 'Desarrollo de Software', semestres: '10 semestres', clase: 'blue', img: 'Desarrollo de Software.png' },
@@ -10,7 +10,7 @@ const programas = [
     { nombre: 'Producción de Eventos', semestres: '10 semestres', clase: 'yellow', img: 'Producción de Eventos.png' }
 ];
 
-export default function Home() {
+export default function Services() {
     return (
         <main>
             <h1>¡Bienvenido!</h1>

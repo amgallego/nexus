@@ -7,13 +7,13 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-custom fixed-top">
             <div className="container-fluid px-4">
                 {/* Logo */}
-                <a className="navbar-brand d-flex align-items-center" href="#">
+                <Link className="navbar-brand d-flex align-items-center" to="/">
                     <img
                         src="/src/assets/Imagenes/logo nexus blanco-01.png"
                         alt="Logo"
                         className="logo-icon"
                     />
-                </a>
+                </Link>
 
                 {/* Botón Hamburguesa para Móvil */}
                 <button
@@ -40,9 +40,9 @@ export default function Navbar() {
 
                     {/* Enlaces de la derecha */}
                     <div className="d-flex align-items-center mt-2 mt-lg-0">
-                        <a href="/public/Board/index.html" className="nav-link text-white me-3">
+                        <Link to="/" className="nav-link text-white me-3">
                             Inicio
-                        </a>
+                        </Link>
                         <Link to="/login" className="btn btn-light">
                             Portal Universitario
                         </Link>
