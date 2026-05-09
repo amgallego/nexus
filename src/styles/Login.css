@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+.fondo {
+  /* Mantenemos tu fondo pero aseguramos que centre todo sin importar el tamaño */
+  background: radial-gradient(#0f2a43, #000);
+  background-image: url(/src/assets/Imagenes/Fondo\ Página.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;    /* Centra verticalmente para que no tape el navbar */
+  justify-content: center; /* Centra horizontalmente */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 60px;      /* Espacio de respeto para el Navbar */
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: transparent;
+}
+
+.logo-icon {
+  width: 100px;
+  margin-right: 8px;
+  margin-left: 17px;
+}
+
+.search-bar {
+  background-color: #00181a;
+  border: 1px solid #2c3e50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px;
+}
+
+/* CONTENEDOR LOGIN - Ajustado para ser más pequeño */
+.contenedor-login {
+  background-color: #fff;
+  width: 90%;
+  max-width: 340px;       /* Lo bajamos de 400px a 360px para que se vea más fino */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  padding-bottom: 15px;   /* Un poquito más de espacio al final */
+  transition: 0.3s ease;
+}
+
+/* ENCABEZADO - Más compacto */
+.encabezado {
+  background-color: #0b1f3a;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;    /* Reducimos de 30px a 20px para que no sea tan largo */
+}
+
+.logo-img {
+  width: 100px;          /* Lo bajamos de 200px a 140px. Este era el culpable del largo */
+  height: auto;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+
+.encabezado .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.encabezado h2 {
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.encabezado p {
+  font-size: 12px;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* SELECTOR - Mantenemos tus botones con buen espacio */
+.selector {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  gap: 8px;             /* Un pelo más de espacio entre botones */
+}
+
+.selector button {
+  padding: 10px 15px;    /* Mantenemos tu padding original */
+  flex: 1;
+  border: 2px solid #0b1f3a;
+  background-color: white;
+  color: #0b1f3a;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.selector button.activo {
+  background-color: #0b1f3a;
+  color: white;
+}
+
+/* FORMULARIO - Intacto */
+form {
+  padding: 0 20px;       /* Un poco más de aire a los lados */
+}
+
+form input {
+  padding: 8px 10px;     /* Inputs más delgados */
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* BOTONES DE ABAJO - Con el espacio que querías */
+.botones {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;             /* Espacio para que no se vean pegados */
+  margin-top: 15px;
+}
+
+.botones button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Colores por rol - Intactos */
+.contenedor-login.estudiante .botones button {
+  background-color: #0b1f3a;
+  color: white;
+}
+
+.contenedor-login.administrativo .botones button {
+  background-color: #2e3d55;
+  color: #f1f1f1;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #444;
+  margin-top: 15px;
+}
