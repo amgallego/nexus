@@ -2,33 +2,6 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const MOCK_ASPIRANTES = [
-  { id: 1, nombre: "Valentina Torres", cedula: "1020345678", carrera: "Ingeniería de Sistemas", fecha: "2025-03-12", estado: "pendiente", email: "v.torres@email.com", telefono: "310-456-7890", promedio: 4.2, documentos: ["Diploma bachiller", "Acta de grado"], faltantes: ["Certificado médico"] },
-  { id: 2, nombre: "Sebastián Morales", cedula: "1098765432", carrera: "Medicina", fecha: "2025-03-15", estado: "aprobado", email: "s.morales@email.com", telefono: "315-234-5678", promedio: 4.8, documentos: ["Diploma bachiller", "Acta de grado", "Certificado médico"], faltantes: [] },
-  { id: 3, nombre: "Camila Jiménez", cedula: "1045678901", carrera: "Derecho", fecha: "2025-03-18", estado: "rechazado", email: "c.jimenez@email.com", telefono: "320-987-6543", promedio: 3.1, documentos: ["Diploma bachiller"], faltantes: ["Acta de grado", "Certificado médico"] },
-  { id: 4, nombre: "Andrés Ramírez", cedula: "1067890123", carrera: "Ingeniería de Sistemas", fecha: "2025-03-20", estado: "pendiente", email: "a.ramirez@email.com", telefono: "312-345-6789", promedio: 3.9, documentos: ["Diploma bachiller", "Acta de grado"], faltantes: ["Foto 3x4"] },
-  { id: 5, nombre: "María Fernanda Gómez", cedula: "1023456789", carrera: "Medicina", fecha: "2025-03-22", estado: "docs_pendientes", email: "mf.gomez@email.com", telefono: "318-654-3210", promedio: 4.5, documentos: ["Diploma bachiller"], faltantes: ["Acta de grado", "Certificado médico", "Foto 3x4"] },
-  { id: 6, nombre: "Juan Pablo Herrera", cedula: "1056789012", carrera: "Administración", fecha: "2025-03-25", estado: "pendiente", email: "jp.herrera@email.com", telefono: "321-876-5432", promedio: 4.0, documentos: ["Diploma bachiller", "Acta de grado", "Certificado médico"], faltantes: [] },
-];
-
-const MOCK_CARRERAS = [
-  { id: 1, nombre: "Ingeniería de Sistemas", semestres: 10, creditos: 160, facultad: "Ingeniería", cupos: 40, inscritos: 34 },
-  { id: 2, nombre: "Medicina", semestres: 12, creditos: 220, facultad: "Ciencias de la Salud", cupos: 25, inscritos: 22 },
-  { id: 3, nombre: "Derecho", semestres: 10, creditos: 170, facultad: "Ciencias Jurídicas", cupos: 50, inscritos: 41 },
-  { id: 4, nombre: "Administración de Empresas", semestres: 8, creditos: 140, facultad: "Ciencias Económicas", cupos: 60, inscritos: 48 },
-  { id: 5, nombre: "Psicología", semestres: 10, creditos: 155, facultad: "Ciencias Humanas", cupos: 35, inscritos: 29 },
-  { id: 6, nombre: "Arquitectura", semestres: 10, creditos: 175, facultad: "Artes y Diseño", cupos: 30, inscritos: 27 },
-];
-
-const MOCK_DOCENTES = [
-  { id: 1, nombre: "Dr. Carlos Mendoza", cedula: "52345678", cargo: "Profesor Titular", carrera: "Ingeniería de Sistemas", departamento: "Computación", email: "c.mendoza@univ.edu" },
-  { id: 2, nombre: "Dra. Patricia Vargas", cedula: "45678901", cargo: "Profesora Asociada", carrera: "Medicina", departamento: "Fisiología", email: "p.vargas@univ.edu" },
-  { id: 3, nombre: "Mg. Ricardo Peña", cedula: "67890123", cargo: "Instructor", carrera: "Derecho", departamento: "Derecho Civil", email: "r.pena@univ.edu" },
-  { id: 4, nombre: "Dra. Lucía Restrepo", cedula: "78901234", cargo: "Profesora Titular", carrera: "Administración de Empresas", departamento: "Finanzas", email: "l.restrepo@univ.edu" },
-  { id: 5, nombre: "Esp. Hernán Castro", cedula: "89012345", cargo: "Catedrático", carrera: "Psicología", departamento: "Psicología Clínica", email: "h.castro@univ.edu" },
-  { id: 6, nombre: "Arq. Claudia Pinto", cedula: "90123456", cargo: "Profesora Asociada", carrera: "Arquitectura", departamento: "Diseño Urbano", email: "c.pinto@univ.edu" },
-];
-
 const ESTADO_CONFIG = {
   pendiente: { label: "Pendiente", bg: "#FFF3CD", color: "#856404", icon: "⏳" },
   aprobado: { label: "Aprobado", bg: "#D1E7DD", color: "#0F5132", icon: "✓" },

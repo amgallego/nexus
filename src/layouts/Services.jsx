@@ -1,8 +1,9 @@
 import React from 'react';
 import ProgramasCard from '../components/Card';
+import ProgramaDetalle from '../components/Detalle';
 
 const programas = [
-    { nombre: 'Desarrollo de Software', semestres: '10 semestres', clase: 'blue', img: 'Desarrollo de Software.png' },
+    { nombre: 'Desarrollo de Software', semestres: '10 semestres', clase: 'blue', img: 'Desarrollo de Software.png'},
     { nombre: 'Arte Culinario', semestres: '10 semestres', clase: 'green', img: 'Arte Culinario.png' },
     { nombre: 'Comercio Internacional', semestres: '10 semestres', clase: 'magenta', img: 'Comercio Internacional.png' },
     { nombre: 'Seguridad Laboral', semestres: '10 semestres', clase: 'purple', img: 'Seguridad Laboral.png' },
