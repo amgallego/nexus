@@ -1,74 +1,89 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import "../layouts/login.css";// Asegúrate de que el archivo se llame exactamente así
+import logoNexus from "../assets/Imagenes/logo nexus blanco-01.png";
+import fondoPantalla from "../assets/Imagenes/Fondo Página.jpeg";
 
 export default function Login() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [rol, setRol] = useState("estudiante"); // Estado para el rol seleccionado
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    try {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await apiFetch(endpoints.login, {
+                method: "POST",
+                body: JSON.stringify({ email, password }),
+            });
+            localStorage.setItem("token", "fake-token");
+            successAlert("Login exitoso!!");
+            navigate("/services");
+        } catch (error) {
+            errorAlert("Credenciales inválidas");
+        }
+    };
 
-      await apiFetch(endpoints.login, {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-      });
+    return (
+        <div className="fondo"
+            style={{
+                backgroundImage: `radial-gradient(circle, rgba(15, 42, 67, 0.8), #000), url(${fondoPantalla})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                overflow: 'hidden'
+            }}>
+            <div className={`contenedor-login ${rol}`}>
 
-      localStorage.setItem("token", "fake-token");
+                <div className="encabezado">
+                    <Link className="logo" to="/">
+                        <img src={logoNexus} alt="Logo Nexus" className="logo-img" />
+                    </Link>
+                    <h2>Portal Admisiones</h2>
+                    <p>Bienvenido al sistema de acceso universitario</p>
+                </div>
 
-      successAlert("Login exitoso");
+                {/* Selector de Rol */}
+                <div className="selector">
+                    <button type="button" className={rol === "estudiante" ? "activo" : ""}
+                        onClick={() => setRol("estudiante")}
+                    >
+                        Estudiante
+                    </button>
+                    <button type="button" className={rol === "admin" ? "activo" : ""}
+                        onClick={() => setRol("admin")}
+                    >
+                        Personal Administrativo
+                    </button>
+                </div>
 
-      navigate("/services");
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="email">Correo Electrónico</label>
+                    <input type="email"
+                        id="email"
+                        placeholder="Ingrese su correo electrónico"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
 
-    } catch (error) {
-      errorAlert("No se pudo conectar con el servidor");
-    }
-  };
+                    <label htmlFor="password">Contraseña</label>
+                    <input type="password"
+                        id="password"
+                        placeholder="Ingrese su contraseña"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
 
-  return (
-    <div className="fondo"> {/* Mapea con .fondo del CSS */}
-      <div className="contenedor-login"> {/* Mapea con .contenedor-login */}
+                    <div className="botones">
+                        <button type="submit">Iniciar Sesión</button>
+                        <button type="button" onClick={() => navigate("/register")}>Crear cuenta</button>
+                    </div>
+                </form>
 
-        <div className="encabezado"> {/* Mapea con .encabezado */}
-          <div className="logo">NEXUS</div>
-          <h2>Bienvenido</h2>
-          <p>Ingresa tus credenciales para continuar</p>
+
+            </div>
         </div>
-
-        <form onSubmit={handleSubmit}>
-          <label>Correo Electrónico</label>
-          <input
-            type="email"
-            placeholder="ejemplo@correo.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
-          <label>Contraseña</label>
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <div className="botones"> {/* Mapea con .botones */}
-            <button type="submit">Ingresar</button>
-          </div>
-        </form>
-
-        <footer>
-          <p>
-            ¿No tienes cuenta?
-            <Link to="/register" style={{ color: '#0b1f3a', fontWeight: 'bold' }}> Regístrate aquí</Link>
-          </p>
-        </footer>
-      </div>
-    </div>
-  );
+    );
 }
